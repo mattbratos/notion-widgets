@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Clock Widget</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" <link
+        href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Press Start 2P", cursive;
+            /* NES.css recommended font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            color: #00ff00;
+            margin: 0;
+        }
+
+        .clock-container {
+            text-align: center;
+        }
+
+        .clock {
+            font-size: 120px;
+            /* Adjust size as needed */
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock-container">
+        <!-- Apply NES.css classes -->
+        <div id="clock" class="clock nes-text is-primary">00:00</div>
+    </div>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours().toString().padStart(2, "0");
+            let minutes = now.getMinutes().toString().padStart(2, "0");
+            document.getElementById("clock").textContent =
+                `${hours}:${minutes}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Initialize clock immediately
+    </script>
+</body>
+
+</html>
